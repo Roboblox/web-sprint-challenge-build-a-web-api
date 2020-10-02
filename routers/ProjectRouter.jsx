@@ -7,8 +7,8 @@ router.get("/", (req, res) => {
     .then((projects) => {
       res.status(200).json(projects);
     })
-    .catch((err) => {
-      res.status(500).json("cant retrieve projects", err);
+    .catch(() => {
+      res.status(500).json("cant retrieve projects");
     });
 });
 router.get("/:id", (req, res) => {
@@ -17,7 +17,7 @@ router.get("/:id", (req, res) => {
     .then((project) => {
       res.status(200).json(project);
     })
-    .catch((err) => {
+    .catch(() => {
       res.status(500).json("cant retrieve project", err);
     });
 });
@@ -25,11 +25,11 @@ router.get("/:id", (req, res) => {
 router.delete("/:id", (req, res) => {
   const id = req.params.id;
   db.remove(id)
-    .then((num) => {
-      res.status(200).json({ message: `successfuly deleted, ${num}` });
+    .then(() => {
+      res.status(200).json("successfuly deleted");
     })
-    .catch((err) => {
-      res.status(500).json({ errorMessage: `could not delete project`, err });
+    .catch(() => {
+      res.status(500).json("could not delete project");
     });
 });
 router.post("/", (req, res) => {
@@ -37,8 +37,8 @@ router.post("/", (req, res) => {
     .then((user) => {
       res.status(200).json(user);
     })
-    .catch((err) => {
-      res.status(500).json({ message: "Could not process new project", err });
+    .catch(() => {
+      res.status(500).json("Could not process new project");
     });
 });
 
@@ -49,16 +49,13 @@ router.put("/:id", (req, res) => {
     db.update(id, body)
       .then((updateRes) => {
         updateRes !== null
-          ? res.status(200).json({ message: "Successfully Updated" })
-          : res.status(400).json({ message: "Could not update user" });
+          ? res.status(200).json("Successfully Updated")
+          : res.status(400).json("Could not update user");
       })
-      .catch((err) => {
-        res.status(500).json({ errorMessage: "unable to process update", err });
+      .catch(() => {
+        res.status(500).json("unable to process update");
       });
-  } else
-    res
-      .status(400)
-      .json({ errorMessage: "Please Provide Name and description" });
+  } else res.status(400).json("Please Provide Name and description");
 });
 
 module.exports = router;

@@ -8,7 +8,7 @@ const actionsRouter = require("./routers/ActionsRouter.jsx");
 server.use(express.json());
 server.use(helmet());
 server.use("/api/projects", projectRouter);
-server.use("/api/actions", actionsRouter);
+// server.use("/api/actions", actionsRouter);
 
 server.get("/", (req, res) => {
   res.send("Its Working!");

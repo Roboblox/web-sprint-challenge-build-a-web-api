@@ -1,8 +1,8 @@
 const express = require("express");
 const helmet = require("helmet");
 const server = express();
-const projectRouter = require("./Routers/Projects");
-const actionsRouter = require("./Routers/actions");
+const projectRouter = require("./routers/ProjectRouter.jsx");
+const actionsRouter = require("./routers/ActionsRouter.jsx");
 
 //global Middleware
 server.use(express.json());

@@ -61,19 +61,4 @@ router.put("/:id", (req, res) => {
       .json({ errorMessage: "Please Provide Name and description" });
 });
 
-//middleware functions
-function validateProjectId() {
-  return function (req, res, next) {
-    const userId = Number(req.params.user_id);
-    db.get(userId)
-      .then((project) => {
-        project ? next() : res.status(400).json({ message: "invalid user id" });
-      })
-      .catch((err) => {
-        res
-          .status(500)
-          .json({ errorMessage: "could not process request", err });
-      });
-  };
-}
 module.exports = router;

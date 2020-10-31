@@ -1,6 +1,6 @@
 const express = require('express');
-const projectsRouter = require('../projects/projects-router');
-const actionsRouter = require('../actions/actions-router');
+const projectsRouter = require('../routes/projects-router');
+const actionsRouter = require('../routes/actions-router');
 
 const server = express();
 // are where we configure the app/server

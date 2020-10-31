@@ -1,5 +1,5 @@
 const express = require('express');
-const knex = require('knex');
+
 const projects = require("../data/helpers/projectModel"); // USE LATER
 
 const router = express.Router();

@@ -1,6 +1,6 @@
 const express = require('express');
-const knex = require('knex');
-const projects = require("../data/helpers/actionModel"); // USE LATER
+
+const actions = require("../data/helpers/actionModel"); // USE LATER
 
 const router = express.Router();
 

@@ -3,7 +3,10 @@ const projectsRouter = require('../projects/projects-router');
 const actionsRouter = require('../actions/actions-router');
 
 const server = express();
-
 // are where we configure the app/server
 server.use(express.json()); // gives Express the ability to parse the req.body
-server.use(projectsRouter)
+server.use('/api/projects', projectsRouter);
+// server.use('/api/actions', actionsRouter);
+
+  
+  module.exports = server;
